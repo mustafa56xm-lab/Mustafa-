@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mustafa Mubarak | Developer Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #080d18;
+  --panel: #101a2b;
+  --blue: #38bdf8;
+  --cyan: #67e8f9;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(#38bdf80b 1px, transparent 1px),
+    linear-gradient(90deg,#38bdf80b 1px,transparent 1px);
+  background-size: 45px 45px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.logo {
+  font-family: 'Space Grotesk';
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.logo span { color: var(--blue); }
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: .3s;
+}
+
+.nav-links a:hover { color: var(--cyan); }
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 25px;
+}
+
+.hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 75px 0;
+}
+
+.tag {
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk';
+  font-size: clamp(40px, 6vw, 70px);
+  line-height: 1.12;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  color: var(--blue);
+  text-shadow: 0 0 30px #38bdf855;
+}
+
+.hero p {
+  max-width: 510px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin: 25px 0;
+  font-size: 15px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 23px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.primary {
+  color: #06111d;
+  background: var(--blue);
+}
+
+.primary:hover {
+  box-shadow: 0 0 30px #38bdf855;
+  transform: translateY(-3px);
+}
+
+.secondary {
+  border: 1px solid #38bdf855;
+  color: var(--cyan);
+}
+
+.secondary:hover { background: #38bdf815; }
+
+.hero-visual {
+  width: 310px;
+  height: 310px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid #38bdf855;
+  display: grid;
+  place-items: center;
+  position: relative;
+  background: radial-gradient(circle, #123654, #080d18 70%);
+  box-shadow: 0 0 70px #0ea5e933;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -18px;
+  border: 1px dashed #38bdf866;
+  border-radius: 50%;
+  animation: rotate 25s linear infinite;
+}
+
+.hero-visual strong {
+  font-family: 'Space Grotesk';
+  font-size: 75px;
+  color: var(--cyan);
+  text-shadow: 0 0 35px #38bdf899;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+section { padding: 90px 0; }
+
+.section-title {
+  font-family: 'Space Grotesk';
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.section-title span { color: var(--blue); }
+
+.subtitle {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 35px;
+  font-size: 14px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 25px;
+}
+
+.card {
+  background: linear-gradient(145deg,#142238,#0c1422);
+  border: 1px solid #ffffff12;
+  padding: 30px;
+  border-radius: 12px;
+  transition: .3s;
+}
+
+.card:hover {
+  border-color: #38bdf866;
+  transform: translateY(-5px);
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.info div {
+  padding-bottom: 13px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.info small {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.info strong { font-size: 14px; }
+
+.skills-grid, .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.skill {
+  text-align: center;
+  padding: 30px 15px;
+}
+
+.skill .symbol {
+  font-size: 34px;
+  color: var(--cyan);
+  margin-bottom: 15px;
+}
+
+.skill h3 {
+  font-family: 'Space Grotesk';
+  margin-bottom: 10px;
+}
+
+.skill p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.project {
+  overflow: hidden;
+  padding: 0;
+}
+
+.project-top {
+  height: 150px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle,#164b70,#101a2b);
+  font-size: 45px;
+  color: var(--cyan);
+}
+
+.project-content { padding: 25px; }
+
+.project-content h3 {
+  margin-bottom: 12px;
+  font-family: 'Space Grotesk';
+}
+
+.project-content p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.project-content small {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--cyan);
+}
+
+.education {
+  border-left: 2px solid var(--blue);
+  padding: 5px 0 5px 25px;
+  margin-left: 10px;
+}
+
+.education h3 { margin-bottom: 10px; }
+.education p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.contact-box {
+  text-align: center;
+  padding: 55px 25px;
+  border: 1px solid #38bdf844;
+  border-radius: 15px;
+  background: linear-gradient(145deg,#12243a,#0b1220);
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin: 18px 0 28px;
+}
+
+footer {
+  padding: 30px 0;
+  text-align: center;
+  border-top: 1px solid #ffffff12;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer span { color: var(--cyan); }
+
+@media(max-width:750px) {
+  .menu-btn { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 75px;
+    right: 5%;
+    background: #101a2b;
+    border: 1px solid #ffffff22;
+    border-radius: 10px;
+    padding: 25px;
+    flex-direction: column;
+    z-index: 10;
+  }
+
+  .nav-links.active { display: flex; }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 65px 0;
+  }
+
+  .hero p { margin: 20px auto; }
+  .buttons { justify-content: center; }
+  .hero-visual { width: 210px; height: 210px; }
+  .hero-visual strong { font-size: 55px; }
+
+  .about-grid, .skills-grid, .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title { font-size: 29px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="container">
+<nav>
+  <div class="logo">MUSTAFA<span>.</span></div>
+  <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</header>
+
+<main>
+<div class="container">
+
+<section class="hero" id="home">
+  <div>
+    <div class="tag">// WELCOME TO MY DIGITAL WORLD</div>
+    <h1>Hello, I'm<br><span>Mustafa Mubarak.</span></h1>
+    <p>
+      A Software Engineering student passionate about
+      technology, creative web design, and building
+      modern digital experiences with code.
+    </p>
+    <div class="buttons">
+      <a href="#projects" class="btn primary">Explore My Work ↗</a>
+      <a href="#contact" class="btn secondary">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <strong>MM</strong>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About <span>Me.</span></h2>
+  <p class="subtitle">A little introduction about who I am.</p>
+
+  <div class="about-grid">
+    <div class="card">
+      <h3 style="margin-bottom:18px">My Journey</h3>
+      <p>
+        My name is Mustafa Mubarak Adam Saeed.
+        I am a first-semester Software Engineering
+        student at Politeknik Indonusa Surakarta.
+        <br><br>
+        I enjoy learning programming and exploring
+        how technology can turn creative ideas into
+        beautiful and functional websites.
+        <br><br>
+        My current focus is improving my skills in
+        HTML, CSS, and JavaScript while developing
+        my own web projects.
+      </p>
+    </div>
+
+    <div class="card info">
+      <div>
+        <small>FULL NAME</small>
+        <strong>Mustafa Mubarak Adam Saeed</strong>
+      </div>
+      <div>
+        <small>FIELD</small>
+        <strong>Software Engineering</strong>
+      </div>
+      <div>
+        <small>UNIVERSITY</small>
+        <strong>Politeknik Indonusa Surakarta</strong>
+      </div>
+      <div>
+        <small>ACADEMIC LEVEL</small>
+        <strong>1st Semester</strong>
+      </div>
+      <div>
+        <small>INTEREST</small>
+        <strong>Web Development & Technology</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">My <span>Skills.</span></h2>
+  <p class="subtitle">Technologies I use and continue to develop.</p>
+
+  <div class="skills-grid">
+    <div class="card skill">
+      <div class="symbol">〈/〉</div>
+      <h3>HTML5</h3>
+      <p>Creating structured, semantic, and accessible web pages.</p>
+    </div>
+
+    <div class="card skill">
+      <div class="symbol">✧</div>
+      <h3>CSS3</h3>
+      <p>Designing responsive layouts, animations, and modern interfaces.</p>
+    </div>
+
+    <div class="card skill">
+      <div class="symbol">JS</div>
+      <h3>JavaScript</h3>
+      <p>Building interactive experiences and dynamic website features.</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Featured <span>Projects.</span></h2>
+  <p class="subtitle">A collection of my learning and creative work.</p>
+
+  <div class="projects-grid">
+    <div class="card project">
+      <div class="project-top">⌘</div>
+      <div class="project-content">
+        <h3>Personal Portfolio</h3>
+        <p>A personal website introducing my background, skills, and journey in software engineering.</p>
+        <small>HTML · CSS · JavaScript</small>
+      </div>
+    </div>
+
+    <div class="card project">
+      <div class="project-top">◈</div>
+      <div class="project-content">
+        <h3>Modern Landing Page</h3>
+        <p>A modern landing page concept featuring responsive design and attractive visual elements.</p>
+        <small>HTML · CSS</small>
+      </div>
+    </div>
+
+    <div class="card project">
+      <div class="project-top">⌁</div>
+      <div class="project-content">
+        <h3>Interactive Website</h3>
+        <p>A learning project exploring JavaScript interactions and dynamic web experiences.</p>
+        <small>HTML · CSS · JavaScript</small>
+      </div>
+    </div>
+  </div>
+  <p style="color:#64748b;font-size:12px;margin-top:18px">
+    Note: These are starter portfolio project descriptions. Replace them with your actual completed projects.
+  </p>
+</section>
+
+<section id="education">
+  <h2 class="section-title">My <span>Education.</span></h2>
+  <p class="subtitle">My academic journey.</p>
+
+  <div class="card">
+    <div class="education">
+      <h3>Software Engineering</h3>
+      <p>Politeknik Indonusa Surakarta</p>
+      <p>1st Semester · Current Student</p>
+      <p style="color:#38bdf8;margin-top:10px">
+        Learning • Creating • Growing
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-box">
+    <div class="tag">// LET'S CONNECT</div>
+    <h2 class="section-title">Have an idea? <span>Let's build it.</span></h2>
+    <p>
+      I'm always excited to learn, collaborate,
+      and explore new opportunities in technology.
+    </p>
+    <a href="mailto:your-email@example.com" class="btn primary">
+      Get In Touch ↗
+    </a>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <p>Designed & Built by <span>Mustafa Mubarak</span></p>
+  <p style="margin-top:10px">© 2026 All Rights Reserved.</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+  });
+});
+</script>
+
+</body>
+  </html>
+  
